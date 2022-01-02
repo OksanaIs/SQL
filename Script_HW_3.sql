@@ -9,13 +9,13 @@ join employees on employee_salary.employee_id = employees.id
 join salary on employee_salary.salary_id = salary.id
 where monthly_salary < 2000;
 
--- 3. Вывести все зарплатные позиции, но работник по ним не назначен. (ЗП есть, но не понятно кто её получает)
+-- 3. Show all salary positions, but the employee is not assigned to them (there is a salary, but it is not clear who gets it)
 select monthly_salary, employee_name from employee_salary
 join salary on employee_salary.salary_id = salary.id
 left join employees on employee_salary.employee_id = employees.id
 where employee_name is null;
 
--- 4. Show all positions with salaries, but no employee has been assigned to them. (there is a salary, but it is not clear who gets it)
+-- 4. Show all salary positions less than 2000 but no employee assigned to them (there is a salary, but it is not clear who gets it)
 select monthly_salary, employee_name from employee_salary
 join salary on employee_salary.salary_id = salary.id
 left join employees on employee_salary.employee_id = employees.id
@@ -62,7 +62,7 @@ join employees on roles_employee.employee_id = employees.id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%Automation QA%';
 
--- 12. Show names and salaries of Junior Professionals
+-- 12. Show names and salaries of Junior specialists
 select employee_name, monthly_salary, role_name from employees
 join employee_salary on employee_salary.employee_id = employees.id
 join salary on employee_salary.salary_id = salary.id
@@ -70,7 +70,7 @@ join roles_employee on roles_employee.employee_id = employees.id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%Junior%';
 
--- 13. Show names and salaries of Middle Professionals
+-- 13. Show names and salaries of Middle specialists
 select employee_name, monthly_salary, role_name from employees
 join employee_salary on employee_salary.employee_id = employees.id
 join salary on employee_salary.salary_id = salary.id
@@ -78,7 +78,7 @@ join roles_employee on roles_employee.employee_id = employees.id
 join roles on roles_employee.role_id = roles.id
 where role_name like '%Middle%';
 
--- 14. Show names and salaries of Senior Professionals
+-- 14. Show names and salaries of Senior specialists
 select employee_name, monthly_salary, role_name from employees
 join employee_salary on employee_salary.employee_id = employees.id
 join salary on employee_salary.salary_id = salary.id
